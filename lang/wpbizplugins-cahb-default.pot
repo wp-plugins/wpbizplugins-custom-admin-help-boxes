@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPBizPlugins Custom Admin Help Boxes\n"
-"POT-Creation-Date: 2014-05-20 13:44+0100\n"
-"PO-Revision-Date: 2014-05-20 14:05+0100\n"
+"POT-Creation-Date: 2014-05-21 13:40+0100\n"
+"PO-Revision-Date: 2014-05-21 13:40+0100\n"
 "Last-Translator: Gabriel Nordeborn <gabriel@wpbizplugins.com>\n"
 "Language-Team: WPBizPlugins <gabriel@wpbizplugins.com>\n"
 "Language: English\n"
@@ -273,58 +273,73 @@ msgid ""
 msgstr ""
 
 #: inc/custom-posttypes.php:165
-msgid "Where to display this help box"
+msgid "Popup"
 msgstr ""
 
 #: inc/custom-posttypes.php:168
+msgid ""
+"Select this if you want to display your content in a popup. If so, a button "
+"will be displayed in your help box, urging your users to click the button to "
+"get help. Very good for longer and more comprehensive help content."
+msgstr ""
+
+#: inc/custom-posttypes.php:168
+msgid "This does not look very good when used on the Dashboard."
+msgstr ""
+
+#: inc/custom-posttypes.php:175
+msgid "Where to display this help box"
+msgstr ""
+
+#: inc/custom-posttypes.php:178
 msgid ""
 "Select where you want this help box to show. Choose from the various post "
 "types in your WordPress install, as well as the Dashboard."
 msgstr ""
 
-#: inc/custom-posttypes.php:177
+#: inc/custom-posttypes.php:187
 msgid "Display placement"
 msgstr ""
 
-#: inc/custom-posttypes.php:180
+#: inc/custom-posttypes.php:190
 msgid ""
 "Choose in what place you want this help box to be displayed. Choosing \"In "
 "the middle\" will place the help box close to the middle of the screen. "
 "Choosing \"On the side\" will place it on the right hand side."
 msgstr ""
 
-#: inc/custom-posttypes.php:191
+#: inc/custom-posttypes.php:201
 msgid "Display priority"
 msgstr ""
 
-#: inc/custom-posttypes.php:206
+#: inc/custom-posttypes.php:216
 msgid "Show extra information in help box"
 msgstr ""
 
-#: inc/custom-posttypes.php:209
+#: inc/custom-posttypes.php:219
 msgid ""
 "De-select this if you do not want to display extras like your e-mail, phone "
 "number and more in this help box."
 msgstr ""
 
-#: inc/custom-posttypes.php:216
+#: inc/custom-posttypes.php:226
 msgid "Bottom message"
 msgstr ""
 
-#: inc/custom-posttypes.php:219
+#: inc/custom-posttypes.php:229
 msgid "All done!"
 msgstr ""
 
-#: inc/custom-posttypes.php:277
+#: inc/custom-posttypes.php:287
 msgid ""
 "Fill in the fields and select your options on this page. Then simply press "
 "publish and you have a new, fresh custom admin help box!"
 msgstr ""
 
-#: inc/custom-posttypes.php:279
+#: inc/custom-posttypes.php:289
 msgid "Title"
 msgstr ""
 
-#: inc/custom-posttypes.php:279
+#: inc/custom-posttypes.php:289
 msgid "Enter the title of your custom help box."
 msgstr ""

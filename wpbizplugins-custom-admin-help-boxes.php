@@ -3,7 +3,7 @@
 Plugin Name: WPBizPlugins Custom Admin Help Boxes
 Plugin URI: http://www.wpbizplugins.com
 Description: Add your own custom help boxes to the admin section of WordPress.
-Version: 1.0
+Version: 1.0.1
 Author: Gabriel Nordeborn
 Author URI: http://www.wpbizplugins.com
 Text Domain: wpbizplugins-cahb
@@ -134,7 +134,30 @@ function wpbizplugins_cahb_print_help_box_content( $post, $extra_data ) {
 
     global $wpbizplugins_cahb_options;
 
+    $data = $extra_data['args'];
+
     echo '<div class="wpbizplugins-cahb-metabox">';
+
+    // Displays the popup and the popup content if that is set to be enabled
+    if( $data['use_popup'] == 1 ) {
+
+        $unique_id = uniqid();
+
+        if( ( isset( $wpbizplugins_cahb_options['company_logo']['url'] ) ) && ( $wpbizplugins_cahb_options['company_logo']['url'] != '' ) ) {
+
+            // Print the company logo in the center
+            echo '<img style="max-width:90%;" src="' . $wpbizplugins_cahb_options['company_logo']['url'] . '" class="aligncenter wpbizplugins-cahb-company-logo">';
+            echo '<hr />';
+
+        }
+
+        add_thickbox();
+        echo '<a href="#TB_inline?width=640&height=600&inlineId=wpbizplugins-thickbox-' . $unique_id . '" class="thickbox wpbizplugins-cahb-button btn-green"><span class="dashicons dashicons-visibility"></span> ' . __('Click here to get help', 'wpbizplugins-cahb') . '</a>';
+        echo '<div id="wpbizplugins-thickbox-' . $unique_id . '" style="display:none; max-width:100%;">';
+        echo '<div class="wpbizplugins-thickbox-content">';
+
+    }
+
 
     if( ( isset( $wpbizplugins_cahb_options['company_logo']['url'] ) ) && ( $wpbizplugins_cahb_options['company_logo']['url'] != '' ) ) {
 
@@ -143,8 +166,6 @@ function wpbizplugins_cahb_print_help_box_content( $post, $extra_data ) {
         echo '<hr />';
 
     }
-
-    $data = $extra_data['args'];
 
     echo '<div class="wpbizplugins-cahb-content">';
     echo $data['content'];
@@ -172,6 +193,7 @@ function wpbizplugins_cahb_print_help_box_content( $post, $extra_data ) {
     }
 
     echo '</div>';
+    if( $data['use_popup'] == 1 ) echo '</div></div>';
 
     unset( $wpbizplugins_cahb_options );
 

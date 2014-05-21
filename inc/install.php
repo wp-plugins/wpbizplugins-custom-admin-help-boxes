@@ -54,6 +54,7 @@ function wpbizplugins_cahb_activation_function() {
         add_post_meta( $default_button, 'context', 'side' );
         add_post_meta( $default_button, 'priority', 'high' );
         add_post_meta( $default_button, 'show_extras', 1 );
+        add_post_meta( $default_button, 'use_popup', 0 );
 
     }
 

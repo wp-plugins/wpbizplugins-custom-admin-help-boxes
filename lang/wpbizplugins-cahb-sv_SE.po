@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WPBizPlugins Custom Admin Help Boxes\n"
-"POT-Creation-Date: 2014-05-20 13:44+0100\n"
-"PO-Revision-Date: 2014-05-20 14:03+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2014-05-21 13:36+0100\n"
+"PO-Revision-Date: 2014-05-21 13:40+0100\n"
+"Last-Translator: Gabriel Nordeborn <gabriel@wpbizplugins.com>\n"
 "Language-Team: WPBizPlugins <gabriel@wpbizplugins.com>\n"
 "Language: English\n"
 "MIME-Version: 1.0\n"
@@ -293,10 +293,29 @@ msgstr ""
 "lägga till bilder och vad än du vill och behöver här."
 
 #: inc/custom-posttypes.php:165
+msgid "Popup"
+msgstr "Popup"
+
+#: inc/custom-posttypes.php:168
+msgid ""
+"Select this if you want to display your content in a popup. If so, a button "
+"will be displayed in your help box, urging your users to click the button to "
+"get help. Very good for longer and more comprehensive help content."
+msgstr ""
+"Välj denna om du vill att innehållet i din hjälpbox ska visas i en popup. Om "
+"du vill det kommer en knapp att visas i din hjälpbox. Knappen öppnar "
+"popuppen med innehållet. Väldigt bra för längre och mer omfattande "
+"hjälpmaterial."
+
+#: inc/custom-posttypes.php:168
+msgid "This does not look very good when used on the Dashboard."
+msgstr "Detta ser inte jättebra ut när du använder det på instrumentbrädan."
+
+#: inc/custom-posttypes.php:175
 msgid "Where to display this help box"
 msgstr "Vart ska boxen visas"
 
-#: inc/custom-posttypes.php:168
+#: inc/custom-posttypes.php:178
 msgid ""
 "Select where you want this help box to show. Choose from the various post "
 "types in your WordPress install, as well as the Dashboard."
@@ -304,26 +323,26 @@ msgstr ""
 "Välj vart du vill att denna box ska visas. Välj från de olika post-typer som "
 "finns i din WordPress-installation, inkluderat instrumentpanelen."
 
-#: inc/custom-posttypes.php:177
+#: inc/custom-posttypes.php:187
 msgid "Display placement"
 msgstr "Visningsplacering"
 
-#: inc/custom-posttypes.php:180
+#: inc/custom-posttypes.php:190
 msgid ""
 "Choose in what place you want this help box to be displayed. Choosing \"In "
 "the middle\" will place the help box close to the middle of the screen. "
 "Choosing \"On the side\" will place it on the right hand side."
 msgstr "Välj vart på skärmen du vill att boxen ska visas. "
 
-#: inc/custom-posttypes.php:191
+#: inc/custom-posttypes.php:201
 msgid "Display priority"
 msgstr "Prioritet för visning"
 
-#: inc/custom-posttypes.php:206
+#: inc/custom-posttypes.php:216
 msgid "Show extra information in help box"
 msgstr "Visa extra information i boxen"
 
-#: inc/custom-posttypes.php:209
+#: inc/custom-posttypes.php:219
 msgid ""
 "De-select this if you do not want to display extras like your e-mail, phone "
 "number and more in this help box."
@@ -331,15 +350,15 @@ msgstr ""
 "Tryck bort denna om du inte vill visa extra supportinformation som din e-"
 "postadress, ditt telefonnummer och mer i boxen."
 
-#: inc/custom-posttypes.php:216
+#: inc/custom-posttypes.php:226
 msgid "Bottom message"
 msgstr "Bottom message"
 
-#: inc/custom-posttypes.php:219
+#: inc/custom-posttypes.php:229
 msgid "All done!"
 msgstr "Klart!"
 
-#: inc/custom-posttypes.php:277
+#: inc/custom-posttypes.php:287
 msgid ""
 "Fill in the fields and select your options on this page. Then simply press "
 "publish and you have a new, fresh custom admin help box!"
@@ -347,10 +366,10 @@ msgstr ""
 "Fyll i informationen och välj bland alternativen på denna sidan. Tryck sedan "
 "på publicera och du har en ny, rykande färsk hjälpbox!"
 
-#: inc/custom-posttypes.php:279
+#: inc/custom-posttypes.php:289
 msgid "Title"
 msgstr "Titel"
 
-#: inc/custom-posttypes.php:279
+#: inc/custom-posttypes.php:289
 msgid "Enter the title of your custom help box."
 msgstr "Skriv titeln på din hjälpbox."

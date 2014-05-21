@@ -161,6 +161,16 @@ function wpbizplugins_cahb_load_custom_fields() {
                     'media_upload' => 'yes',
                 ),
                 array (
+                    'key' => 'field_popup_or_not',
+                    'label' => __('Popup', 'wpbizplugins-cahq'),
+                    'name' => 'use_popup',
+                    'type' => 'true_false',
+                    'instructions' => __('Select this if you want to display your content in a popup. If so, a button will be displayed in your help box, urging your users to click the button to get help. Very good for longer and more comprehensive help content.', 'wpbizplugins-cahq') . '<br /><strong>' . __('This does not look very good when used on the Dashboard.', 'wpbizplugins-cahb') . '</strong>',
+                    'message' => '',
+                    'default_value' => 0,
+            
+                ),
+                array (
                     'key' => 'field_5374b197b5763',
                     'label' => __('Where to display this help box', 'wpbizplugins-cahb'),
                     'name' => 'where_to_display',
