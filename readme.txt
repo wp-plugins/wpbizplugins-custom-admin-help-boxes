@@ -8,7 +8,7 @@ Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Ever wish there was an easy way to add your own instructions and help material for your clients and users to the WordPress admin section? Well, look no further! Custom Admin Help Boxes gives you an easy way to add your own help boxes and help instructions to the dashboard or any post type in your websites admin section. 
+Easily add your own instructions and help material to the WordPress admin section with Custom Admin Help Boxes. Lets you add custom help boxes to any page, post or custom post type. Simplify the life of your users or clients!
 
 == Description ==
 
