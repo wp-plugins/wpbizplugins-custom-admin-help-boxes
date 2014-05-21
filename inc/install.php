@@ -50,7 +50,7 @@ function wpbizplugins_cahb_activation_function() {
         // Add all of the meta values
         add_post_meta( $default_button, 'content', $content );
         add_post_meta( $default_button, 'url', get_admin_url() . 'post-new.php' );
-        add_post_meta( $default_button, 'where_to_display', 'wpbizplugins-cahb' );
+        add_post_meta( $default_button, 'where_to_display', array('wpbizplugins-cahb') );
         add_post_meta( $default_button, 'context', 'side' );
         add_post_meta( $default_button, 'priority', 'high' );
         add_post_meta( $default_button, 'show_extras', 1 );
