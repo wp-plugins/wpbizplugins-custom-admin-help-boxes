@@ -171,6 +171,46 @@ function wpbizplugins_cahb_load_custom_fields() {
             
                 ),
                 array (
+                    'key' => 'field_popup_button_name',
+                    'label' => __('Button text', 'wpbizplugins-cahq'),
+                    'name' => 'popup_button_text',
+                    'type' => 'text',
+                    'default_value' => 'Click to get help',
+                    'instructions' => __('What do you want the popup button to say?', 'wpbizplugins-cahq'),
+                    'conditional_logic' => array (
+                        'status' => 1,
+                        'rules' => array (
+                            
+                            array (
+                                'field' => 'field_popup_or_not',
+                                'operator' => '==',
+                                'value' => '1',
+                            ),
+                        ),
+                        'allorany' => 'all',
+                        )
+                    ),
+                array (
+                    'key' => 'field_popup_button_pre_text',
+                    'label' => __('Text before button', 'wpbizplugins-cahq'),
+                    'name' => 'popup_button_text_before',
+                    'type' => 'textarea',
+                    'default_value' => 'Click the button below to reveal additional help instructions and information.',
+                    'instructions' => __('The text displayed before the button. Make this brief.', 'wpbizplugins-cahq'),
+                    'conditional_logic' => array (
+                        'status' => 1,
+                        'rules' => array (
+                            
+                            array (
+                                'field' => 'field_popup_or_not',
+                                'operator' => '==',
+                                'value' => '1',
+                            ),
+                        ),
+                        'allorany' => 'all',
+                        )
+                    ),
+                array (
                     'key' => 'field_5374b197b5763',
                     'label' => __('Where to display this help box', 'wpbizplugins-cahb'),
                     'name' => 'where_to_display',

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=MF5MU
 Tags: admin, help box, help boxes, custom help, admin help, simplify wordpress, simple, wpbizplugins, clients, client work, widget, widgets, meta box, meta boxes, instructions, help, dashboard widgets, dashboard widget
 Requires at least: 3.7
 Tested up to: 3.9.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,7 @@ Ideal for working with clients or users who aren't used to WordPress and need a 
 * Easily add your own instructions and help material to the add/edit page of any post, page or custom post type
 * Create widgets that shows beautifully right on the main dashboard easily
 * Add videos, images, and text to your help boxes just like you would to a normal WordPress post or page
+* Have your help content display right in a WordPress metabox, or in a popup for longer content
 * Add your phone, email and website support page URL, and have your clients or users have easy ways of getting in touch with you right from every help box
 
 
@@ -54,7 +55,7 @@ Awesome! Shoot me an e-mail at <a href="mailto:support@wpbizplugins.com?subject=
 1. Example of how a custom help box can look. As you can see in this example, you can add your own company logo on the top. You can also easily add extra ways of contacting you directly by adding your email/phone/website support URL. This will automatically create links in every help box, making it ideal for providing additional support contact means right in the admin section of WordPress.
 2. Shows the custom help box in the example being edited. Also shows the custom help box in action to the right.
 3. The configuration of the Custom Admin Help Boxes plugin. Few but powerful options! Lets you easily add your company logo, and support e-mail/phone/external URL, to automatically appear in every help box you create.
-
+4. The popup mode enabled and in action. Perfect for longer and more comprehensive help content.
 == Changelog ==
 
 = 1.0 =
@@ -62,6 +63,10 @@ Awesome! Shoot me an e-mail at <a href="mailto:support@wpbizplugins.com?subject=
 
 = 1.0.1 =
 * Added functionality for using popups to display content if the content is long.
+
+= 1.0.2 =
+* Added shortcode support for the content. You can now use shortcodes.
+* Made the popup button text editable, plus added a small editable textarea before the popup button that can be used to explain what clicking the button does.
 
 == Upgrade Notice ==
 

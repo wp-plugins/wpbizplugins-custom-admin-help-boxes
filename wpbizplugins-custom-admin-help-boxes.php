@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: WPBizPlugins Custom Admin Help Boxes
-Plugin URI: http://www.wpbizplugins.com
+Plugin URI: http://www.wpbizplugins.com?utm_source=cahb&utm_medium=plugin&utm_campaign=pluginuri
 Description: Add your own custom help boxes to the admin section of WordPress.
-Version: 1.0.1
+Version: 1.0.2
 Author: Gabriel Nordeborn
-Author URI: http://www.wpbizplugins.com
+Author URI: http://www.wpbizplugins.com?utm_source=cahb&utm_medium=plugin&utm_campaign=authoruri
 Text Domain: wpbizplugins-cahb
 */
 
@@ -32,7 +32,6 @@ Text Domain: wpbizplugins-cahb
  */
 
 register_activation_hook( __FILE__, 'wpbizplugins_cahb_activation_function' );
-
 
 /**
  *
@@ -152,7 +151,8 @@ function wpbizplugins_cahb_print_help_box_content( $post, $extra_data ) {
         }
 
         add_thickbox();
-        echo '<a href="#TB_inline?width=640&height=600&inlineId=wpbizplugins-thickbox-' . $unique_id . '" class="thickbox wpbizplugins-cahb-button btn-green"><span class="dashicons dashicons-visibility"></span> ' . __('Click here to get help', 'wpbizplugins-cahb') . '</a>';
+        echo '<p>' . do_shortcode( $data['popup_button_text_before'] ) . '</p>';
+        echo '<a href="#TB_inline?width=640&height=600&inlineId=wpbizplugins-thickbox-' . $unique_id . '" class="thickbox wpbizplugins-cahb-button btn-green"><span class="dashicons dashicons-visibility"></span> ' . $data['popup_button_text'] . '</a>';
         echo '<div id="wpbizplugins-thickbox-' . $unique_id . '" style="display:none; max-width:100%;">';
         echo '<div class="wpbizplugins-thickbox-content">';
 
@@ -168,7 +168,7 @@ function wpbizplugins_cahb_print_help_box_content( $post, $extra_data ) {
     }
 
     echo '<div class="wpbizplugins-cahb-content">';
-    echo $data['content'];
+    echo do_shortcode( $data['content'] );
     echo '</div>';
 
     $is_any_support_option_set = false;

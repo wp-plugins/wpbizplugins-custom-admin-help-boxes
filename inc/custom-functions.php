@@ -118,18 +118,22 @@ function wpbizplugins_cahb_get_metaboxes_array() {
             $priority = get_post_meta( $help_box_id, 'priority', true );
             $show_extras = get_post_meta( $help_box_id, 'show_extras', true );
             $use_popup = get_post_meta( $help_box_id, 'use_popup', true );
+            $popup_button_text = get_post_meta( $help_box_id, 'popup_button_text', true );
+            $popup_button_text_before = get_post_meta( $help_box_id, 'popup_button_text_before', true );
 
             $metaboxes_array[] = array( 
 
-                'html_id'           => $html_id,
-                'title'             => $title,
-                'content'           => $content,
-                'callback'          => 'wpbizplugins_cahb_print_help_box_content',
-                'where_to_display'  => $where_to_display,
-                'context'           => $context,
-                'priority'          => $priority,
-                'show_extras'       => $show_extras,
-                'use_popup'         => $use_popup
+                'html_id'                   => $html_id,
+                'title'                     => $title,
+                'content'                   => $content,
+                'callback'                  => 'wpbizplugins_cahb_print_help_box_content',
+                'where_to_display'          => $where_to_display,
+                'context'                   => $context,
+                'priority'                  => $priority,
+                'show_extras'               => $show_extras,
+                'use_popup'                 => $use_popup,
+                'popup_button_text'         => $popup_button_text,
+                'popup_button_text_before'  => $popup_button_text_before
 
             );
         }
@@ -166,9 +170,12 @@ function wpbizplugins_cahb_register_metaboxes( $metaboxes_array ) {
                     $metabox['context'],
                     $metabox['priority'],
                     array(
-                        'content'       => $metabox['content'],
-                        'show_extras'   => $metabox['show_extras'],
-                        'use_popup'     => $metabox['use_popup']
+                        'content'                   => $metabox['content'],
+                        'show_extras'               => $metabox['show_extras'],
+                        'use_popup'                 => $metabox['use_popup'],
+                        'popup_button_text'         => $metabox['popup_button_text'],
+                        'popup_button_text_before'  => $metabox['popup_button_text_before']
+
                     )
 
                 );
@@ -208,9 +215,11 @@ function wpbizplugins_cahb_register_dashboard_widgets( $metaboxes_array ) {
                     $metabox['context'],
                     $metabox['priority'],
                     array(
-                        'content'       => $metabox['content'],
-                        'show_extras'   => $metabox['show_extras'],
-                        'use_popup'     => $metabox['use_popup']
+                        'content'                   => $metabox['content'],
+                        'show_extras'               => $metabox['show_extras'],
+                        'use_popup'                 => $metabox['use_popup'],
+                        'popup_button_text'         => $metabox['popup_button_text'],
+                        'popup_button_text_before'  => $metabox['popup_button_text_before']
                     )
 
                 );
