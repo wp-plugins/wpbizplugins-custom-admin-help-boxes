@@ -168,7 +168,7 @@ function wpbizplugins_cahb_register_metaboxes( $metaboxes_array ) {
 
         foreach( $metabox['where_to_display'] as $where_to_display ) {
 
-            if( $where_to_display != 'dashboard' ) {
+            if( ( $where_to_display != 'dashboard' ) && ( $where_to_display != '' ) ) {
 
                 add_meta_box( 
 
@@ -213,7 +213,7 @@ function wpbizplugins_cahb_register_dashboard_widgets( $metaboxes_array ) {
 
         foreach( $metabox['where_to_display'] as $where_to_display ) {
 
-            if( $where_to_display == 'dashboard' ) {
+            if( ( $where_to_display == 'dashboard' ) && ( $where_to_display != '' ) ) {
 
                 add_meta_box( 
 
