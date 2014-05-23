@@ -223,6 +223,14 @@ function wpbizplugins_cahb_load_custom_fields() {
                     'multiple' => 0,
                 ),
                 array (
+                    'key' => 'field_additional_custom_post_types',
+                    'label' => __('Additional custom post types', 'wpbizplugins-cahq'),
+                    'name' => 'where_to_display_additional',
+                    'type' => 'text',
+                    'default_value' => '',
+                    'instructions' => __('If the custom post type you want to add the help box to do not appear in the list above, enter the name for that custom post type in this text field. You can add several custom post types by separating them with commas.', 'wpbizplugins-cahq')
+                    ),
+                array (
                     'key' => 'field_5374b210b5764',
                     'label' => __('Display placement', 'wpbizplugins-cahb'),
                     'name' => 'context',

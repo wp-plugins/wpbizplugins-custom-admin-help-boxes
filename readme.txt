@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=MF5MU
 Tags: admin, help box, help boxes, custom help, admin help, simplify wordpress, simple, wpbizplugins, clients, client work, widget, widgets, meta box, meta boxes, instructions, help, dashboard widgets, dashboard widget
 Requires at least: 3.7
 Tested up to: 3.9.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,9 @@ Awesome! Shoot me an e-mail at <a href="mailto:support@wpbizplugins.com?subject=
 = 1.0.2 =
 * Added shortcode support for the content. You can now use shortcodes.
 * Made the popup button text editable, plus added a small editable textarea before the popup button that can be used to explain what clicking the button does.
+
+= 1.0.3 =
+* Added the possibility of manually typing in custom post types you want the help box to show on, if they for some reason do not appear in the original custom post type list.
 
 == Upgrade Notice ==
 

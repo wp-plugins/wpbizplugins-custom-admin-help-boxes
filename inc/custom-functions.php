@@ -112,7 +112,16 @@ function wpbizplugins_cahb_get_metaboxes_array() {
             // Get the various needed fields
             $title = get_the_title();
             $html_id = wpbizplugins_cahb_clean_string_for_html_id( $title );
+
+            // Get the data of where to display the boxes
             $where_to_display = get_post_meta( $help_box_id, 'where_to_display', true );
+            // Get the additional text field, and get rid of all whitespace
+            $where_to_display_additional = preg_replace('/\s+/', '', get_post_meta( $help_box_id, 'where_to_display_additional', true ) );
+            $where_to_display_additional = sanitize_text_field( $where_to_display_additional );
+            $where_to_display_additional_array = explode(',', $where_to_display_additional );
+
+            $where_to_display = array_merge( $where_to_display, $where_to_display_additional_array );
+
             $content = get_post_meta( $help_box_id, 'content', true );
             $context = get_post_meta( $help_box_id, 'context', true );
             $priority = get_post_meta( $help_box_id, 'priority', true );
