@@ -168,6 +168,17 @@ if (!class_exists('WPBizPlugins_CustomAdminHelpBoxes_Config')) {
                      */
 
                     array(
+                        'id'       => 'menu_capability',
+                        'type'     => 'select',
+                        'title'    => __('Capability required', 'wpbizplugins-cahb'),
+                        'subtitle' => __('The capability required to edit the menu', 'wpbizplugins-cahb'),
+                        'desc'     => __('Set the capability required for editing the menu contents here. Use to restrict access for your clients.', 'wpbizplugins-cahb'),
+                        // Must provide key => value pairs for select options
+                        'options'  => wpbizplugins_cahb_return_capabilities_array(),
+                        'default'  => 'delete_plugins',
+                    ),
+
+                    array(
                         'id'       => 'company_logo',
                         'type'     => 'media',
                         'url'      => true,

@@ -34,6 +34,10 @@ function wpbizpluins_cahb_custom_post_menu() {
     // Abort if we're not in an admin page
     if( !is_admin() ) return false;
 
+    global $wpbizplugins_cahb_options;
+
+    if( current_user_can( $wpbizplugins_cahb_options['menu_capability'] ) ) $show_in_menu = true; else $show_in_menu = false;
+
     $labels = array(
         'name'               => _x( 'Custom help boxes', 'post type general name', 'wpbizplugins-cahb' ),
         'singular_name'      => _x( 'Custom help box', 'post type singular name', 'wpbizplugins-cahb' ),
@@ -49,9 +53,6 @@ function wpbizpluins_cahb_custom_post_menu() {
         'parent_item_colon'  => '',
         'menu_name'          => __('Custom Help Boxes', 'wpbizplugins-cahb')
     );
-
-    // Only add the menu item if the current user can modify options. This hides it for clients who typically don't get permissions to edit options on their main accounts.
-    if( current_user_can( 'manage_options' ) ) $show_in_menu = true; else $show_in_menu = false;
     
     $args = array(
         'labels'                => $labels,
