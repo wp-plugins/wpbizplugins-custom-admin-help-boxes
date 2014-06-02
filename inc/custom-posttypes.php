@@ -79,7 +79,7 @@ add_action( 'init', 'wpbizpluins_cahb_custom_post_menu' );
  *
  */
 
-function wpbizplugins_cahb_updated_messages() {
+function wpbizplugins_cahb_updated_messages( $messages ) {
 
     global $post, $post_ID;
 
