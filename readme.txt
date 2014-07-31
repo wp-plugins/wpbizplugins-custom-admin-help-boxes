@@ -43,6 +43,9 @@ This section describes how to install the plugin and get it working. Recommended
 
 == Frequently Asked Questions ==
 
+= There seems to be a maximum amount of dashboard widgets allowed. How can increase the amount? =
+Go into Settings -> Reading, and change the number of "Blog pages to show the most". Answer courtesy of Thierry Langie.
+
 = I have a question that's not answered in this FAQ =
 Send me an e-mail at <a href="mailto:support@wpbizplugins.com?subject=Easy Admin Quick Menu Help">support@wpbizplugins.com</a> and I'll get back to you as soon as I can.
 
