@@ -129,6 +129,7 @@ function wpbizplugins_cahb_get_metaboxes_array() {
             $use_popup = get_post_meta( $help_box_id, 'use_popup', true );
             $popup_button_text = get_post_meta( $help_box_id, 'popup_button_text', true );
             $popup_button_text_before = get_post_meta( $help_box_id, 'popup_button_text_before', true );
+            $autop = get_post_meta( $help_box_id, 'autop', true );
 
             $metaboxes_array[] = array( 
 
@@ -142,7 +143,8 @@ function wpbizplugins_cahb_get_metaboxes_array() {
                 'show_extras'               => $show_extras,
                 'use_popup'                 => $use_popup,
                 'popup_button_text'         => $popup_button_text,
-                'popup_button_text_before'  => $popup_button_text_before
+                'popup_button_text_before'  => $popup_button_text_before,
+                'autop'                     => $autop
 
             );
         }
@@ -150,6 +152,9 @@ function wpbizplugins_cahb_get_metaboxes_array() {
     }
 
     return $metaboxes_array;
+
+    wp_reset_postdata();
+    wp_reset_query();
 }
 
 /**
@@ -179,11 +184,12 @@ function wpbizplugins_cahb_register_metaboxes( $metaboxes_array ) {
                     $metabox['context'],
                     $metabox['priority'],
                     array(
-                        'content'                   => $metabox['content'],
-                        'show_extras'               => $metabox['show_extras'],
-                        'use_popup'                 => $metabox['use_popup'],
-                        'popup_button_text'         => $metabox['popup_button_text'],
-                        'popup_button_text_before'  => $metabox['popup_button_text_before']
+                        'content'                   => $metabox[ 'content' ],
+                        'show_extras'               => $metabox[ 'show_extras' ],
+                        'use_popup'                 => $metabox[ 'use_popup' ],
+                        'popup_button_text'         => $metabox[ 'popup_button_text' ],
+                        'popup_button_text_before'  => $metabox[ 'popup_button_text_before' ],
+                        'autop'                     => $metabox[ 'autop' ]
 
                     )
 
@@ -228,7 +234,8 @@ function wpbizplugins_cahb_register_dashboard_widgets( $metaboxes_array ) {
                         'show_extras'               => $metabox['show_extras'],
                         'use_popup'                 => $metabox['use_popup'],
                         'popup_button_text'         => $metabox['popup_button_text'],
-                        'popup_button_text_before'  => $metabox['popup_button_text_before']
+                        'popup_button_text_before'  => $metabox['popup_button_text_before'],
+                        'autop'                     => $metabox[ 'autop' ]
                     )
 
                 );
@@ -250,7 +257,9 @@ function wpbizplugins_cahb_print_plugin_styles() {
 
     global $wpbizplugins_cahb_options;
 
-    echo '<style type="text/css">
+    echo '<style type="text/css">';
+
+    echo wpbizplugins_cahb_minify_css( '
 
     .wpbizplugins-cahb-content {
 
@@ -339,16 +348,40 @@ function wpbizplugins_cahb_print_plugin_styles() {
     .btn-red:hover { background-color:#BF564B !important; }.btn-orange { background-color:#FF9C31 !important; border:1px solid #BF884B !important; text-shadow:0px 0px 3px #A65E10 !important; }
     .btn-orange:hover { background-color:#BF884B !important; }
 
-    ' . $wpbizplugins_cahb_options['custom_css'] . '
+    ' . $wpbizplugins_cahb_options['custom_css'] );
 
-    </style>
-    ';
+    echo '</style>';
 
     unset( $wpbizplugins_cahb_options );
 
 }
 
 add_action( 'admin_head', 'wpbizplugins_cahb_print_plugin_styles' );
+
+/**
+ * Minifies CSS somewhat.
+ *
+ * @param string $css The CSS.
+ * @return string The minified CSS.
+ * @since 1.0
+ *
+ */
+
+function wpbizplugins_cahb_minify_css( $css ) {
+
+    // Remove comments
+    $css = preg_replace('!/\*[^*]*\*+([^/][^*]*\*+)*/!', '', $css);
+     
+    // Remove space after colons
+    $css = str_replace(': ', ':', $css);
+     
+    // Remove whitespace
+    $css = str_replace(array("\r\n", "\r", "\n", "\t", '', '', ''), '', $css);
+
+    return $css;
+
+}
+
 
 /**
  * Returns a number cleaned from everything but digits.

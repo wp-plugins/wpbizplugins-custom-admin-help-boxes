@@ -3,8 +3,8 @@ Contributors: wpbizplugins
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=MF5MU4TNF3UDU&lc=SE&item_name=WPBizPlugins&item_number=Easy%20Admin%20Quick%20Menu&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
 Tags: admin, help box, help boxes, custom help, admin help, simplify wordpress, simple, wpbizplugins, clients, client work, widget, widgets, meta box, meta boxes, instructions, help, dashboard widgets, dashboard widget
 Requires at least: 3.7
-Tested up to: 3.9.1
-Stable tag: 1.1.2
+Tested up to: 3.9.2
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,6 +82,10 @@ Awesome! Shoot me an e-mail at <a href="mailto:support@wpbizplugins.com?subject=
 
 = 1.1.2 =
 * Fixed bug that occasionally caused plugin to hijack the custom update/save messages for custom post types.
+
+= 1.2.0 =
+* New feature: Turn off automatic adding of <p>-tags. For compability with some other plugins.
+* Minifying CSS in admin. Makes it look less crappy in the source.
 
 == Upgrade Notice ==
 

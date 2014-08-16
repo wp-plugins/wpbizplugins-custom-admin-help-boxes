@@ -3,7 +3,7 @@
 Plugin Name: WPBizPlugins Custom Admin Help Boxes
 Plugin URI: http://www.wpbizplugins.com?utm_source=cahb&utm_medium=plugin&utm_campaign=pluginuri
 Description: Add your own custom help boxes to the admin section of WordPress.
-Version: 1.1.2
+Version: 1.2.0
 Author: Gabriel Nordeborn
 Author URI: http://www.wpbizplugins.com?utm_source=cahb&utm_medium=plugin&utm_campaign=authoruri
 Text Domain: wpbizplugins-cahb
@@ -168,7 +168,7 @@ function wpbizplugins_cahb_print_help_box_content( $post, $extra_data ) {
     }
 
     echo '<div class="wpbizplugins-cahb-content">';
-    echo wpautop( do_shortcode( $data['content'] ) );
+    if( $data[ 'autop' ] == 1 ) echo wpautop( do_shortcode( $data['content'] ) ); else echo do_shortcode( $data[ 'content' ] );
     echo '</div>';
 
     $is_any_support_option_set = false;

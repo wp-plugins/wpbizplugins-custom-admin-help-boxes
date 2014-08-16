@@ -162,6 +162,16 @@ function wpbizplugins_cahb_load_custom_fields() {
                     'media_upload' => 'yes',
                 ),
                 array (
+                    'key' => 'autop',
+                    'label' => __('Automatically add paragraph-tags', 'wpbizplugins-cahq'),
+                    'name' => 'autop',
+                    'type' => 'true_false',
+                    'instructions' => __( 'Untick this if you\'re adding something in the help box that\'s not normal text or images. Leaving this marked will automatically output paragraph tags to your text, which you want if you\'re adding text and images, but usually not with other types of content.', 'wpbizplugins-cahb' ),
+                    'message' => '',
+                    'default_value' => 1,
+            
+                ),
+                array (
                     'key' => 'field_popup_or_not',
                     'label' => __('Popup', 'wpbizplugins-cahq'),
                     'name' => 'use_popup',
