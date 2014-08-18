@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=MF5MU
 Tags: admin, help box, help boxes, custom help, admin help, simplify wordpress, simple, wpbizplugins, clients, client work, widget, widgets, meta box, meta boxes, instructions, help, dashboard widgets, dashboard widget
 Requires at least: 3.7
 Tested up to: 3.9.2
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -89,6 +89,9 @@ Awesome! Shoot me an e-mail at <a href="mailto:support@wpbizplugins.com?subject=
 
 = 1.2.1 =
 * Minor fix.
+
+= 1.2.2 =
+* Updated to latest ACF version.
 
 == Upgrade Notice ==
 
