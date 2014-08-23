@@ -3,7 +3,7 @@
 Plugin Name: WPBizPlugins Custom Admin Help Boxes
 Plugin URI: http://www.wpbizplugins.com?utm_source=cahb&utm_medium=plugin&utm_campaign=pluginuri
 Description: Add your own custom help boxes to the admin section of WordPress.
-Version: 1.2.2
+Version: 1.3.0
 Author: Gabriel Nordeborn
 Author URI: http://www.wpbizplugins.com?utm_source=cahb&utm_medium=plugin&utm_campaign=authoruri
 Text Domain: wpbizplugins-cahb
@@ -75,6 +75,22 @@ function wpbizplugins_cahb_init_plugin() {
 }
 
 add_action( 'init', 'wpbizplugins_cahb_init_plugin' );
+
+/**
+ * LOAD APPROPRIATE STYLES
+ * Load fitvids.js
+ *
+ */
+
+function wpbizplugins_cahb_enqueue_scripts() {
+
+    wp_register_script( 'fitvids', plugins_url( '/assets/fitvids.js', __FILE__ ), null, null, true );
+    wp_enqueue_script( 'fitvids' );
+
+}
+
+add_action( 'admin_enqueue_scripts', 'wpbizplugins_cahb_enqueue_scripts' );
+
 
 /**
  *
@@ -168,7 +184,8 @@ function wpbizplugins_cahb_print_help_box_content( $post, $extra_data ) {
     }
 
     echo '<div class="wpbizplugins-cahb-content">';
-    if( ( $data[ 'autop' ] == "" ) || ( $data[ 'autop' ] == 1 ) ) echo wpautop( do_shortcode( $data['content'] ) ); else echo do_shortcode( $data[ 'content' ] );
+
+    if( ( $data[ 'autop' ] == "" ) || ( $data[ 'autop' ] == 1 ) ) echo apply_filters( 'the_content', $data['content'] ); else echo $data['content'];
     echo '</div>';
 
     $is_any_support_option_set = false;
@@ -198,3 +215,27 @@ function wpbizplugins_cahb_print_help_box_content( $post, $extra_data ) {
     unset( $wpbizplugins_cahb_options );
 
 }
+
+/**
+ * Print the fitVids fix
+ *
+ */
+
+function wpbizplugins_cahb_enable_fitvids_on_content() {
+
+    ?>
+    
+    <script type="text/javascript">
+
+    jQuery(document).ready(function(){
+        // Target your .container, .wrapper, .post, etc.
+        jQuery(".wpbizplugins-cahb-content").fitVids();
+    });
+
+    </script>
+
+    <?php
+
+}
+
+add_action( 'admin_footer', 'wpbizplugins_cahb_enable_fitvids_on_content' );

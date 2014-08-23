@@ -1,10 +1,10 @@
 === WPBizPlugins Custom Admin Help Boxes ===
 Contributors: wpbizplugins
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=MF5MU4TNF3UDU&lc=SE&item_name=WPBizPlugins&item_number=Easy%20Admin%20Quick%20Menu&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted
-Tags: admin, help box, help boxes, custom help, admin help, simplify wordpress, simple, wpbizplugins, clients, client work, widget, widgets, meta box, meta boxes, instructions, help, dashboard widgets, dashboard widget
+Tags: videos in admin, videos in dashboard, embed videos, admin, help box, help boxes, custom help, admin help, simplify wordpress, simple, wpbizplugins, clients, client work, widget, widgets, meta box, meta boxes, instructions, help, dashboard widgets, dashboard widget
 Requires at least: 3.7
 Tested up to: 3.9.2
-Stable tag: 1.2.2
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,13 +12,14 @@ Easily add your own instructions and help material to the WordPress admin sectio
 
 == Description ==
 
-Tired of clients calling you to ask what to think about when creating blog posts? Tired answering the same questions again and again? Ever wish there was an easy way to just add your own instructions and help material to the WordPress help section?
+Tired of clients calling you to ask what to think about when creating blog posts? Tired answering the same questions again and again? Want to add your own help videos to the admin dashboard? Ever wish there was an easy way to just add your own instructions and help material to the WordPress help section?
 
 Custom Admin Help Boxes lets you add instructions and help material to the admin section of WordPress, easily. With Custom Admin Help Boxes, you'll get an easy way of guiding your users or clients through adding posts, pages, custom posts and more. Just add a help box to your desired location(s) in the admin section, write your instructions, and publish!
 
 Ideal for working with clients or users who aren't used to WordPress and need a bit of extra help and hand-holding in their daily work with their WordPress website. Can also be used to create Dashboard widgets, so you can give your clients or users instructions or what to do right on login.
 
 * Easily add your own instructions and help material to the add/edit page of any post, page or custom post type
+* Embed videos and other help material right on the dashboard
 * Create widgets that shows beautifully right on the main dashboard easily
 * Add videos, images, and text to your help boxes just like you would to a normal WordPress post or page
 * Have your help content display right in a WordPress metabox, or in a popup for longer content
@@ -92,6 +93,11 @@ Awesome! Shoot me an e-mail at <a href="mailto:support@wpbizplugins.com?subject=
 
 = 1.2.2 =
 * Updated to latest ACF version.
+
+= 1.3.0 =
+* Added native support for automatically embedding any video URL (like WordPress does natively), plus automatically make the videos responsive. Yay!
+* Most post types should now appear in the selection menu for display, without needing to enter them in the text field
+* Major bugfix release
 
 == Upgrade Notice ==
 

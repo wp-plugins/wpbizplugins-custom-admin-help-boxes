@@ -59,4 +59,7 @@ function wpbizplugins_cahb_activation_function() {
 
     }
 
+    wp_reset_query();
+    wp_reset_postdata();
+
 }

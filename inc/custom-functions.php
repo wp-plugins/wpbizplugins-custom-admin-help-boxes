@@ -96,7 +96,8 @@ function wpbizplugins_cahb_get_metaboxes_array() {
 
     $args = array(
     
-        'post_type' => 'wpbizplugins-cahb'
+        'post_type'         => 'wpbizplugins-cahb',
+        'posts_per_page'    => -1
         
     );
 
@@ -120,7 +121,7 @@ function wpbizplugins_cahb_get_metaboxes_array() {
             $where_to_display_additional = sanitize_text_field( $where_to_display_additional );
             $where_to_display_additional_array = explode(',', $where_to_display_additional );
 
-            $where_to_display = array_merge( $where_to_display, $where_to_display_additional_array );
+            if( ( is_array( $where_to_display_additional ) ) && ( is_array( $where_to_display ) ) ) $where_to_display = array_merge( $where_to_display, $where_to_display_additional_array );
 
             $content = get_post_meta( $help_box_id, 'content', true );
             $context = get_post_meta( $help_box_id, 'context', true );
@@ -171,29 +172,33 @@ function wpbizplugins_cahb_register_metaboxes( $metaboxes_array ) {
 
     foreach( $metaboxes_array as $metabox ) {
 
-        foreach( $metabox['where_to_display'] as $where_to_display ) {
+        if( is_array( $metabox[ 'where_to_display' ] ) ) {
 
-            if( ( $where_to_display != 'dashboard' ) && ( $where_to_display != '' ) ) {
+            foreach( $metabox['where_to_display'] as $where_to_display ) {
 
-                add_meta_box( 
+                if( ( $where_to_display != 'dashboard' ) && ( $where_to_display != '' ) ) {
 
-                    $metabox['html_id'],
-                    $metabox['title'],
-                    $metabox['callback'],
-                    $where_to_display,
-                    $metabox['context'],
-                    $metabox['priority'],
-                    array(
-                        'content'                   => $metabox[ 'content' ],
-                        'show_extras'               => $metabox[ 'show_extras' ],
-                        'use_popup'                 => $metabox[ 'use_popup' ],
-                        'popup_button_text'         => $metabox[ 'popup_button_text' ],
-                        'popup_button_text_before'  => $metabox[ 'popup_button_text_before' ],
-                        'autop'                     => $metabox[ 'autop' ]
+                    add_meta_box( 
 
-                    )
+                        $metabox['html_id'],
+                        $metabox['title'],
+                        $metabox['callback'],
+                        $where_to_display,
+                        $metabox['context'],
+                        $metabox['priority'],
+                        array(
+                            'content'                   => $metabox[ 'content' ],
+                            'show_extras'               => $metabox[ 'show_extras' ],
+                            'use_popup'                 => $metabox[ 'use_popup' ],
+                            'popup_button_text'         => $metabox[ 'popup_button_text' ],
+                            'popup_button_text_before'  => $metabox[ 'popup_button_text_before' ],
+                            'autop'                     => $metabox[ 'autop' ]
 
-                );
+                        )
+
+                    );
+
+                }
 
             }
 
@@ -217,28 +222,32 @@ function wpbizplugins_cahb_register_dashboard_widgets( $metaboxes_array ) {
 
     foreach( $metaboxes_array as $metabox ) {
 
-        foreach( $metabox['where_to_display'] as $where_to_display ) {
+        if( is_array( $metabox[ 'where_to_display' ] ) ) {
 
-            if( ( $where_to_display == 'dashboard' ) && ( $where_to_display != '' ) ) {
+            foreach( $metabox['where_to_display'] as $where_to_display ) {
 
-                add_meta_box( 
+                if( ( $where_to_display == 'dashboard' ) && ( $where_to_display != '' ) ) {
 
-                    $metabox['html_id'],
-                    $metabox['title'],
-                    $metabox['callback'],
-                    $where_to_display,
-                    $metabox['context'],
-                    $metabox['priority'],
-                    array(
-                        'content'                   => $metabox['content'],
-                        'show_extras'               => $metabox['show_extras'],
-                        'use_popup'                 => $metabox['use_popup'],
-                        'popup_button_text'         => $metabox['popup_button_text'],
-                        'popup_button_text_before'  => $metabox['popup_button_text_before'],
-                        'autop'                     => $metabox[ 'autop' ]
-                    )
+                    add_meta_box( 
 
-                );
+                        $metabox['html_id'],
+                        $metabox['title'],
+                        $metabox['callback'],
+                        $where_to_display,
+                        $metabox['context'],
+                        $metabox['priority'],
+                        array(
+                            'content'                   => $metabox['content'],
+                            'show_extras'               => $metabox['show_extras'],
+                            'use_popup'                 => $metabox['use_popup'],
+                            'popup_button_text'         => $metabox['popup_button_text'],
+                            'popup_button_text_before'  => $metabox['popup_button_text_before'],
+                            'autop'                     => $metabox[ 'autop' ]
+                        )
+
+                    );
+
+                }
 
             }
 
@@ -331,22 +340,22 @@ function wpbizplugins_cahb_print_plugin_styles() {
 
     .wpbizplugins-cahb-button:hover { 
         background-color:#6aaaeb; 
-        color: #F6F6F6 !important;
+        color: #F6F6F6;
     }
 
     .wpbizplugins-cahb-button:active { 
-        color: #F6F6F6 !important;
+        color: #F6F6F6;
     }
 
     .wpbizplugins-cahb-button:focus { 
-        color: #F6F6F6 !important;
+        color: #F6F6F6;
     }
 
-    .btn-blue { background-color:#2EA0CC !important; border:1px solid #408099 !important; text-shadow:0px 0px 3px #0F6485 !important; }
-    .btn-blue:hover { background-color:#408099 !important; }.btn-green { background-color:#26B637 !important; border:1px solid #42A84F !important; text-shadow:0px 0px 3px #0E921E !important; }
-    .btn-green:hover { background-color:#42A84F !important; }.btn-red { background-color:#FF4531 !important; border:1px solid #BF564B !important; text-shadow:0px 0px 3px #A61E10 !important; }
-    .btn-red:hover { background-color:#BF564B !important; }.btn-orange { background-color:#FF9C31 !important; border:1px solid #BF884B !important; text-shadow:0px 0px 3px #A65E10 !important; }
-    .btn-orange:hover { background-color:#BF884B !important; }
+    .btn-blue { background-color:#2EA0CC; border:1px solid #408099; text-shadow:0px 0px 3px #0F6485 ; }
+    .btn-blue:hover { background-color:#408099; }.btn-green { background-color:#26B637; border:1px solid #42A84F; text-shadow:0px 0px 3px #0E921E; }
+    .btn-green:hover { background-color:#42A84F; }.btn-red { background-color:#FF4531; border:1px solid #BF564B; text-shadow:0px 0px 3px #A61E10; }
+    .btn-red:hover { background-color:#BF564B; }.btn-orange { background-color:#FF9C31; border:1px solid #BF884B; text-shadow:0px 0px 3px #A65E10; }
+    .btn-orange:hover { background-color:#BF884B; }
 
     ' . $wpbizplugins_cahb_options['custom_css'] );
 

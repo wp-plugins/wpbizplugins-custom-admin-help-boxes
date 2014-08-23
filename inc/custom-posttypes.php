@@ -116,25 +116,18 @@ function wpbizplugins_cahb_load_custom_fields() {
 
     global $wpbizplugins_cahb_options;
 
-    // Only grab public post types, and ignore the ones built into WordPress
-    $args = array(
-       'public'   => true,
-       '_builtin' => true
-    );
-
-    $public_and_builtin_posts = get_post_types( $args, 'names' );
+    // Add Dashboard separately
+    $wpbizplugins_cahb_post_types = array();
+    $wpbizplugins_cahb_post_types['dashboard'] = 'dashboard'; 
 
     $args = array(
-       'public'   => false,
-       '_builtin' => false
+       //'public'   => false,
+       //'_builtin' => false
     );
 
     $custom_post_types = get_post_types( $args, 'names' );
 
-    $wpbizplugins_cahb_post_types = array_merge( $public_and_builtin_posts, $custom_post_types );
-
-    // Add Dashboard separately
-    $wpbizplugins_cahb_post_types['dashboard'] = 'dashboard'; 
+    if( is_array( $custom_post_types ) ) $wpbizplugins_cahb_post_types = array_merge( $wpbizplugins_cahb_post_types, $custom_post_types );
 
     $wpbizplugins_cahb_post_types_array = array();
 
@@ -161,16 +154,7 @@ function wpbizplugins_cahb_load_custom_fields() {
                     'toolbar' => 'full',
                     'media_upload' => 'yes',
                 ),
-                array (
-                    'key' => 'autop',
-                    'label' => __('Automatically add paragraph-tags', 'wpbizplugins-cahq'),
-                    'name' => 'autop',
-                    'type' => 'true_false',
-                    'instructions' => __( 'Untick this if you\'re adding something in the help box that\'s not normal text or images. Leaving this marked will automatically output paragraph tags to your text, which you want if you\'re adding text and images, but usually not with other types of content.', 'wpbizplugins-cahb' ),
-                    'message' => '',
-                    'default_value' => 1,
-            
-                ),
+                
                 array (
                     'key' => 'field_popup_or_not',
                     'label' => __('Popup', 'wpbizplugins-cahq'),
@@ -230,7 +214,7 @@ function wpbizplugins_cahb_load_custom_fields() {
                     'required' => 1,
                     'choices' => $wpbizplugins_cahb_post_types_array,
                     'default_value' => 'post',
-                    'allow_null' => 0,
+                    'allow_null' => 1,
                     'multiple' => 0,
                 ),
                 array (
@@ -277,9 +261,21 @@ function wpbizplugins_cahb_load_custom_fields() {
                     'type' => 'true_false',
                     'instructions' => __('De-select this if you do not want to display extras like your e-mail, phone number and more in this help box.', 'wpbizplugins-cahq'),
                     'message' => '',
+                    'default_value' => 0,
+            
+                ),
+
+                array (
+                    'key' => 'autop',
+                    'label' => __('Automatically add tags', 'wpbizplugins-cahq'),
+                    'name' => 'autop',
+                    'type' => 'true_false',
+                    'instructions' => __( 'Untick this if you want the contents of this help box to be printed without any processing at all from WordPress. <strong>Normal users want this checked</strong>.', 'wpbizplugins-cahb' ),
+                    'message' => '',
                     'default_value' => 1,
             
                 ),
+
                 array (
                     'key' => 'field_bottom_message',
                     'label' => __('Bottom message', 'wpbizplugins-cahb'),
@@ -328,7 +324,7 @@ function wpbizplugins_cahb_load_custom_fields() {
 }
 
 // Add the fields if we're in admin, and also make sure it loads last, to collect _all_ post types.
-if( is_admin() ) add_action( 'init', 'wpbizplugins_cahb_load_custom_fields', 9999 );
+if( is_admin() ) add_action( 'admin_init', 'wpbizplugins_cahb_load_custom_fields', 9999 );
 
 /**
  * Adds text before the title input in the edit form for our custom post type.
