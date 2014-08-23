@@ -131,10 +131,12 @@ function wpbizplugins_cahb_load_custom_fields() {
 
     $wpbizplugins_cahb_post_types_array = array();
 
-    // Create a usable array for the select from the post types
+    $excluded_post_types = array( 'revision', 'nav_menu_item' );
+
+    // Create a usable array for the select from the post types, and exclude certain post types
     foreach( $wpbizplugins_cahb_post_types as $post_type ) {
 
-        $wpbizplugins_cahb_post_types_array[ $post_type ] = ucfirst( $post_type );
+        if( ! in_array( $post_type, $excluded_post_types ) ) $wpbizplugins_cahb_post_types_array[ $post_type ] = ucfirst( $post_type );
 
     }
 
