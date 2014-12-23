@@ -3,7 +3,7 @@
 Plugin Name: WPBizPlugins Custom Admin Help Boxes
 Plugin URI: http://www.wpbizplugins.com?utm_source=cahb&utm_medium=plugin&utm_campaign=pluginuri
 Description: Add your own custom help boxes to the admin section of WordPress.
-Version: 1.3.0
+Version: 1.3.1
 Author: Gabriel Nordeborn
 Author URI: http://www.wpbizplugins.com?utm_source=cahb&utm_medium=plugin&utm_campaign=authoruri
 Text Domain: wpbizplugins-cahb
@@ -191,9 +191,9 @@ function wpbizplugins_cahb_print_help_box_content( $post, $extra_data ) {
     $is_any_support_option_set = false;
     
     // Check if any of the support options are set or not
-    if( $wpbizplugins_cahb_options['support_email'] != '' ) $is_any_support_option_set = true;
-    if( $wpbizplugins_cahb_options['support_phone'] != '' ) $is_any_support_option_set = true;
-    if( $wpbizplugins_cahb_options['support_url'] != '' ) $is_any_support_option_set = true;
+    if( ( isset( $wpbizplugins_cahb_options['support_email'] ) ) && ( $wpbizplugins_cahb_options['support_email'] != '' ) ) $is_any_support_option_set = true;
+    if( ( isset( $wpbizplugins_cahb_options['support_phone'] ) ) && ( $wpbizplugins_cahb_options['support_phone'] != '' ) ) $is_any_support_option_set = true;
+    if( ( isset( $wpbizplugins_cahb_options['support_url'] ) ) && ( $wpbizplugins_cahb_options['support_url'] != '' ) ) $is_any_support_option_set = true;
 
     // Check if we are to show the extra information here.
     if( ( $data['show_extras'] == 1 ) && ( $is_any_support_option_set == true ) ) {
@@ -201,9 +201,9 @@ function wpbizplugins_cahb_print_help_box_content( $post, $extra_data ) {
         echo '<div class="wpbizplugins-cahb-support-section">';
         echo '<p><em>' . $wpbizplugins_cahb_options['support_text'] . '</em></p>';
         echo '<div class="wpbizplugins-cahb-extra-buttons">';
-        if( $wpbizplugins_cahb_options['support_email'] != '' ) echo '<a href="mailto:' . $wpbizplugins_cahb_options['support_email'] . '" target="_blank" class="wpbizplugins-cahb-button btn-blue"><span class="dashicons dashicons-email-alt"></span> E-mail <em>(' . $wpbizplugins_cahb_options['support_email'] . ')</em></a>';
-        if( $wpbizplugins_cahb_options['support_phone'] != '' ) echo '<a href="tel:' . wpbizplugins_cahb_clean_number( $wpbizplugins_cahb_options['support_phone'] ) . '" target="_blank" class="wpbizplugins-cahb-button btn-orange"><span class="dashicons dashicons-businessman"></span> Phone <em>(' . $wpbizplugins_cahb_options['support_phone'] . ')</em></a>';
-        if( $wpbizplugins_cahb_options['support_url'] != '' ) echo '<a href="' . $wpbizplugins_cahb_options['support_url'] . '" target="_blank" class="wpbizplugins-cahb-button btn-green"><span class="dashicons dashicons-admin-links"></span> Support page</a>';
+        if( ( isset( $wpbizplugins_cahb_options['support_email'] ) ) && ( $wpbizplugins_cahb_options['support_email'] != '' ) ) echo '<a href="mailto:' . $wpbizplugins_cahb_options['support_email'] . '" target="_blank" class="wpbizplugins-cahb-button btn-blue"><span class="dashicons dashicons-email-alt"></span> E-mail <em>(' . $wpbizplugins_cahb_options['support_email'] . ')</em></a>';
+        if( ( isset( $wpbizplugins_cahb_options['support_phone'] ) ) && ( $wpbizplugins_cahb_options['support_phone'] != '' ) ) echo '<a href="tel:' . wpbizplugins_cahb_clean_number( $wpbizplugins_cahb_options['support_phone'] ) . '" target="_blank" class="wpbizplugins-cahb-button btn-orange"><span class="dashicons dashicons-businessman"></span> Phone <em>(' . $wpbizplugins_cahb_options['support_phone'] . ')</em></a>';
+        if( ( isset( $wpbizplugins_cahb_options['support_url'] ) ) && ( $wpbizplugins_cahb_options['support_url'] != '' ) ) echo '<a href="' . $wpbizplugins_cahb_options['support_url'] . '" target="_blank" class="wpbizplugins-cahb-button btn-green"><span class="dashicons dashicons-admin-links"></span> Support page</a>';
         echo '</div>';
         echo '</div>';
 

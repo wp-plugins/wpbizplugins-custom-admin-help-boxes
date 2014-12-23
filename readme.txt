@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=MF5MU
 Tags: videos in admin, videos in dashboard, embed videos, admin, help box, help boxes, custom help, admin help, simplify wordpress, simple, wpbizplugins, clients, client work, widget, widgets, meta box, meta boxes, instructions, help, dashboard widgets, dashboard widget
 Requires at least: 3.7
 Tested up to: 4.0
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,16 @@ This section describes how to install the plugin and get it working. Recommended
 4. Done!
 
 == Frequently Asked Questions ==
+
+= Using the plugin Admin Post Navigation https://wordpress.org/plugins/post-navigator/, when you add text content to a Admin Help Box in popup form the prev / next links automatically appear in the text of the admin help box popup. Can this be fixed? =
+Yes, thanks to Noahj Champion: In short this can be quick fixed via css by adding...
+
+.wpbizplugins-cahb-content #post-navigator-prev,
+.wpbizplugins-cahb-content #post-navigator-next {
+  display: none;
+}
+
+If you need a plugin to easily add custom JS/CSS to your admin, check out "Admin Branding".
 
 = I have a question that's not answered in this FAQ =
 Send me an e-mail at <a href="mailto:support@wpbizplugins.com?subject=Easy Admin Quick Menu Help">support@wpbizplugins.com</a> and I'll get back to you as soon as I can.
