@@ -97,21 +97,21 @@ function wpbizplugins_cahb_get_metaboxes_array() {
     $args = array(
     
         'post_type'         => 'wpbizplugins-cahb',
+        'post_status'       => 'publish',
         'posts_per_page'    => -1
         
     );
 
-    $help_boxes = new WP_Query( $args );
+    $help_boxes = get_posts( $args );
 
-    if( $help_boxes->have_posts() ) {
+    if( ! empty( $help_boxes ) ) {
 
-        while( $help_boxes->have_posts() ) {
-            $help_boxes->the_post();
-            
-            $help_box_id = get_the_ID();
+        foreach( $help_boxes as $help_box ) {
+
+            $help_box_id = $help_box->ID;
 
             // Get the various needed fields
-            $title = get_the_title();
+            $title = get_the_title( $help_box_id );
             $html_id = wpbizplugins_cahb_clean_string_for_html_id( $title );
 
             // Get the data of where to display the boxes
@@ -419,66 +419,17 @@ function wpbizplugins_cahb_clean_number( $number ) {
 
 function wpbizplugins_cahb_return_capabilities_array() {
 
-    $capabilities_array = array(
-        'activate_plugins',
-        'add_users',
-        'create_users',
-        'delete_others_pages',
-        'delete_others_posts',
-        'delete_pages',
-        'delete_plugins',
-        'delete_posts',
-        'delete_private_pages',
-        'delete_private_posts',
-        'delete_published_pages',
-        'delete_published_posts',
-        'delete_themes',
-        'delete_users',
-        'edit_dashboard',
-        'edit_others_pages',
-        'edit_others_posts',
-        'edit_pages',
-        'edit_plugins',
-        'edit_posts',
-        'edit_private_pages',
-        'edit_private_posts',
-        'edit_published_pages',
-        'edit_published_posts',
-        'edit_theme_options',
-        'edit_themes',
-        'edit_users',
-        'export',
-        'import',
-        'install_plugins',
-        'install_themes',
-        'list_users',
-        'manage_categories',
-        'manage_links',
-        'manage_options',
-        'moderate_comments',
-        'promote_users',
-        'publish_pages',
-        'publish_posts',
-        'read',
-        'read_private_pages',
-        'read_private_posts',
-        'remove_users',
-        'switch_themes',
-        'unfiltered_html',
-        'unfiltered_upload',
-        'update_core',
-        'update_plugins',
-        'update_themes',
-        'upload_files'
-    );
+    global $wp_roles;
 
-    $capabilities_array_keypair = array();
+    if ( ! isset( $wp_roles ) ) {
+        $wp_roles = new WP_Roles();
+    }                
 
-    foreach( $capabilities_array as $capability ) {
+    $capabilities_array = array();
 
-        $capabilities_array_keypair[$capability] = $capability;
-
+    foreach( $wp_roles->roles[ 'administrator' ][ 'capabilities' ] as $capability => $status ) {
+        $capabilities_array[ $capability ] = $capability;
     }
 
-    return $capabilities_array_keypair;
+    return $capabilities_array;
 }
